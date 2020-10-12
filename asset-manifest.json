@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/athlas.us/static/css/main.5f361e03.chunk.css",
+    "main.js": "/athlas.us/static/js/main.a1298858.chunk.js",
+    "main.js.map": "/athlas.us/static/js/main.a1298858.chunk.js.map",
+    "runtime-main.js": "/athlas.us/static/js/runtime-main.37ed255f.js",
+    "runtime-main.js.map": "/athlas.us/static/js/runtime-main.37ed255f.js.map",
+    "static/js/2.c295ce2b.chunk.js": "/athlas.us/static/js/2.c295ce2b.chunk.js",
+    "static/js/2.c295ce2b.chunk.js.map": "/athlas.us/static/js/2.c295ce2b.chunk.js.map",
+    "index.html": "/athlas.us/index.html",
+    "precache-manifest.1a877aba67c8fe0d724715a53412179f.js": "/athlas.us/precache-manifest.1a877aba67c8fe0d724715a53412179f.js",
+    "service-worker.js": "/athlas.us/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/athlas.us/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.c295ce2b.chunk.js.LICENSE.txt": "/athlas.us/static/js/2.c295ce2b.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/athlas.us/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.37ed255f.js",
+    "static/js/2.c295ce2b.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.a1298858.chunk.js"
+  ]
+}
