@@ -1,18 +1,14 @@
 import React from 'react'
 import './Editor.css'
 
-import TagSidebar from './tags/TagSidebar'
+import { withAuthorization } from '../Session'
 
-class Editor extends React.Component {
-  render() {
-    return (
-      <React.Fragment>
-        <div className='video'>Video</div>
-        <div className='videoControls'>Video Controls</div>
-        <TagSidebar />
-      </React.Fragment>
-    )
-  }
-}
+const Editor = () => (
+  <div>
+    <h1>Editor</h1>
+  </div>
+)
 
-export default Editor
+const condition = authUser => !!authUser
+
+export default withAuthorization(condition)(Editor)
