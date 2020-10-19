@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import {
   BrowserRouter as Router,
   Route
@@ -10,30 +10,18 @@ import SignInPage from '../SignIn'
 import Editor from '../Editor'
 
 import * as ROUTES from '../../constants/routes'
-import { withFirebase } from '../Firebase'
+import { withAuthentication } from '../Session'
 
-const App = (props) => {
-  const [authUser, setAuthUser] = useState(null)
+const App = () => (
+  <Router>
+    <Navigation />
 
-  useEffect(() => {
-    props.firebase.auth.onAuthStateChanged( authUser => {
-      authUser
-        ? setAuthUser(authUser)
-        : setAuthUser(null)
-    })
-  })
+    <hr />
 
-  return (
-    <Router>
-      <Navigation authUser={authUser} />
+    <Route exact path={ROUTES.LANDING} component={LandingPage} />
+    <Route path={ROUTES.SIGN_IN} component={SignInPage} />
+    <Route path={ROUTES.EDITOR} component={Editor} />
+  </Router>
+)
 
-      <hr />
-
-      <Route exact path={ROUTES.LANDING} component={LandingPage} />
-      <Route path={ROUTES.SIGN_IN} component={SignInPage} />
-      <Route path={ROUTES.EDITOR} component={Editor} />
-    </Router>
-  )
-}
-
-export default withFirebase(App)
+export default withAuthentication(App)
