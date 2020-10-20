@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react'
 
+import { AuthUserContext, withAuthorization } from '../Session'
+
+const authCondition = authUser => !!authUser
+
 function Editor() {
   // const [tags, setTags] = useState([])
   // const [loading, setLoading] = useState(false)
@@ -30,13 +34,17 @@ function Editor() {
   // }
   
   return (
-    <div>
-      <h1>Editor</h1>
-      {/* { tags.map((tag) => (
-        <h2 key={tag.id}>{tag.id}</h2>
-      ))} */}
-    </div>
+    <AuthUserContext.Consumer>
+      { authUser => (
+        <div>
+          <h1>Editor</h1>
+          {/* { tags.map((tag) => (
+            <h2 key={tag.id}>{tag.id}</h2>
+          ))} */}
+        </div>
+      )}
+    </AuthUserContext.Consumer>
   )
 }
 
-export default Editor
+export default withAuthorization(authCondition) (Editor)
