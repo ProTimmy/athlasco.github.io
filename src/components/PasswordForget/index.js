@@ -7,7 +7,7 @@ import * as ROUTES from '../../constants/routes'
 const PasswordForgetPage = () => (
   <div>
     <h1>Password Forget</h1>
-    <PasswordFogetForm />
+    <PasswordForgetForm />
   </div>
 )
 
@@ -68,6 +68,6 @@ const PasswordForgetLink = () => (
 
 export default PasswordForgetPage
 
-const PasswordFogetForm = withFirebase(PasswordForgetFormBase)
+const PasswordForgetForm = withFirebase(PasswordForgetFormBase)
 
-export { PasswordFogetForm, PasswordForgetLink }
+export { PasswordForgetForm, PasswordForgetLink }
