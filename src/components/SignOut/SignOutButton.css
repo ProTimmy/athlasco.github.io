@@ -1,0 +1,13 @@
+.SignOutButton {
+  border: none;
+  display: block;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-color: transparent;
+
+  padding: 30px;
+
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}

@@ -1,0 +1,26 @@
+.Navigation {
+  background-color: #333333;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li * {
+  display: block;
+  padding: 30px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+.SignOutButton {
+  float: right;
+}

@@ -1,48 +1,66 @@
 import React, { useState, useEffect } from 'react'
 
 import { AuthUserContext, withAuthorization } from '../Session'
+import TagList from './TagList'
 
 const authCondition = authUser => !!authUser
 
-function Editor() {
-  // const [tags, setTags] = useState([])
-  // const [loading, setLoading] = useState(false)
+class TAG {
+  constructor(id, data) {
+    this.id = id
+    this.name = data.name
+    this.data = data
+  }
 
-  // const ref = firebase.firestore().collection('tags')
+  getParent() {
+    const parent = this.data.parent
+    
+    if (parent != null) {
+      return new TAG(parent.id, parent.data())
+    } else {
+      console.log("No parent")
+    }
+  }
+}
 
-  // function getTags() {
-  //   setLoading(true)
+const Editor = (props) => {
+  const [tags, setTags] = useState([])
+  const [loading, setLoading] = useState(false)
 
-  //   ref.onSnapshot((querySnapshot) => {
-  //     const items = []
+  useEffect(() => {
+    setLoading(true)
 
-  //     querySnapshot.forEach((doc) => {
-  //       console.log(doc.id)
-  //       items.push(doc)
-  //     })
-  //     setTags(items)
-  //     setLoading(false)
-  //   })
-  // }
+    const unsubscribe = props.firebase
+      .tags().onSnapshot(snapshot => {
+        if (snapshot.size) {
+          const tags = []
 
-  // useEffect(() => {
-  //   getTags()
-  // }, [])
+          snapshot.forEach(doc => {
+            const tag = new TAG(doc.id, doc.data())
 
-  // if (loading) {
-  //   return <h1>Loading...</h1>
-  // }
-  
+            tags.push({...tag})
+          })
+
+          setTags(tags)
+          setLoading(false)
+        } else {
+          // Set error
+          setLoading(false)
+        }
+      })
+
+    return () => unsubscribe()
+  }, [props.firebase])
+
   return (
     <AuthUserContext.Consumer>
-      { authUser => (
+      { authUser =>
         <div>
-          <h1>Editor</h1>
-          {/* { tags.map((tag) => (
-            <h2 key={tag.id}>{tag.id}</h2>
-          ))} */}
+          <TagList
+            tags={tags}
+            loading={loading} />
         </div>
-      )}
+      }
     </AuthUserContext.Consumer>
   )
 }

@@ -6,8 +6,10 @@ import * as ROUTES from '../../constants/routes'
 
 import { AuthUserContext } from '../Session'
 
+import './navigation.css'
+
 const Navigation = () => (
-  <div>
+  <div className='Navigation'>
     <AuthUserContext.Consumer>
       { authUser =>
         authUser ? <NavigationAuth /> : <NavigationNonAuth />
@@ -28,9 +30,7 @@ const NavigationAuth = () => (
       <li>
         <Link to={ROUTES.ACCOUNT}>Account</Link>
       </li>
-      <li>
-        <SignOutButton />
-      </li>
+      <SignOutButton />
     </ul>
   </div>
 )

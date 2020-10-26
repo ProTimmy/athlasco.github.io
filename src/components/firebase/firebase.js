@@ -20,7 +20,7 @@ class Firebase {
     firebase.initializeApp(config)
 
     this.auth = firebase.auth()
-    this.firestore = firebase.firestore()
+    this.db = firebase.firestore()
   }
 
   // *** Auth API ***
@@ -34,6 +34,16 @@ class Firebase {
 
   doPasswordUpdate = password =>
     this.auth.currentUser.updatePassword(password);
+
+  // *** User API ***
+  user = uid => this.db.doc(`users/${uid}`)
+
+  users = () => this.db.collection('users')
+
+  // *** Tags API ***
+  tags = () => this.db.collection('tags')
+
+  tag = id => this.db.doc(`tags/${id}`)
 }
 
 export default Firebase

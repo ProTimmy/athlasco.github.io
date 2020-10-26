@@ -14,7 +14,7 @@ const SignInPage = () => (
   </div>
 )
 
-const INITIAL_STATE= {
+const INITIAL_STATE = {
   email: '',
   password: ''
 }
