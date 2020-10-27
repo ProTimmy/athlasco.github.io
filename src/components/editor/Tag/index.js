@@ -2,8 +2,8 @@ import React from 'react'
 
 const Tag = (props) => {
   return (
-    <div>
-      <h2>{props.name}</h2>
+    <div className='Tag'>
+      <p>{props.name}</p>
     </div>
   )
 }

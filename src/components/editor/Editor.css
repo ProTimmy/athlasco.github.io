@@ -1,3 +1,14 @@
-.editor {
-  background: red;
+.Editor {
+  display: flex;
+
+  height: 100%;
+}
+
+.VideoArea {  
+  flex-grow: 1;
+}
+
+.TagList {
+  width: 20%;
+  min-width: 200px;
 }

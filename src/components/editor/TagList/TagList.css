@@ -1,0 +1,14 @@
+.TagList {
+  display: flex;
+  flex-direction: column;
+
+  border: 2px solid black;
+
+  padding: 20px;
+}
+
+.TagList > input {
+  padding: 10px;
+
+  border-radius: 10px;
+}

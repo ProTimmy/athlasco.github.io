@@ -21,6 +21,11 @@ class Firebase {
 
     this.auth = firebase.auth()
     this.db = firebase.firestore()
+
+    this.db.settings({
+      cacheSizeBytes: firebase.firestore.CACHE_SIZE_UNLIMITED
+    })
+    this.db.enablePersistence()
   }
 
   // *** Auth API ***

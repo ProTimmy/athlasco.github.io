@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react'
 import { AuthUserContext, withAuthorization } from '../Session'
 import TagList from './TagList'
 
+import './Editor.css'
+
 const authCondition = authUser => !!authUser
 
 class TAG {
@@ -55,10 +57,19 @@ const Editor = (props) => {
   return (
     <AuthUserContext.Consumer>
       { authUser =>
-        <div>
+        <div className='Editor'>
           <TagList
             tags={tags}
             loading={loading} />
+
+          <div className='VideoArea'>
+            <div className='VideoPlayer'>
+              Video Player
+            </div>
+            <div className='TagControls'>
+              Tag Controls
+            </div>
+          </div>
         </div>
       }
     </AuthUserContext.Consumer>
