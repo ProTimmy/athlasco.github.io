@@ -1,0 +1,28 @@
+.TagList {
+  display: flex;
+  flex-direction: column;
+
+  border: 2px solid black;
+
+}
+
+.inputArea {
+  display: flex;
+  justify-content: space-between;
+
+  * {
+    padding: 10px;
+  }
+
+  input {
+    flex-grow: 1;
+  
+    border-radius: 10px;
+  }
+
+  :not(input) {
+    align-self: center;
+    
+    cursor: pointer;
+  }
+}

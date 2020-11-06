@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 
 import Tag from '../Tag'
 
-import './TagList.css'
+import './TagList.scss'
+import { FaPlus } from 'react-icons/fa'
 
 const TagList = (props) => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -22,12 +23,15 @@ const TagList = (props) => {
     )
   } else {
     return (
-      <div className='TagList'>
-        <input
-          type='search'
-          value={searchTerm}
-          onChange={e => setSearchTerm(e.target.value)}
-          placeholder='Search' />
+      <div className={'TagList'}>
+        <div className={'inputArea'}>
+          <input
+            type='search'
+            value={searchTerm}
+            onChange={e => setSearchTerm(e.target.value)}
+            placeholder='Search' />
+          <FaPlus />
+        </div>
         
         {searchResults.map(tag => (
           <Tag key={tag.id} name={tag.name} />
