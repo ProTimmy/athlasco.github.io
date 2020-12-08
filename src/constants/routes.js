@@ -1,5 +1,0 @@
-export const LANDING = '/'
-export const SIGN_IN = '/signin'
-export const EDITOR = '/editor'
-export const ACCOUNT = '/account'
-export const PASSWORD_FORGET = '/pw-forget'
