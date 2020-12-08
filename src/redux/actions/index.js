@@ -1,3 +1,3 @@
-export * from './auth'
-export * from './tags'
-export * from './video'
+export * from './auth';
+export * from './tags';
+export * from './video';

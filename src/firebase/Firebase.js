@@ -1,8 +1,8 @@
-import firebase from 'firebase/app'
-import 'firebase/auth'
-import 'firebase/firestore'
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/firestore';
 
-import * as FB_CONFIG from '../constants/firebase_config'
+import * as FB_CONFIG from '../constants/firebase_config';
 
 const firebaseConfig = {
   apiKey: FB_CONFIG.ATHLAS_API_KEY,
@@ -12,8 +12,8 @@ const firebaseConfig = {
   storageBucket: FB_CONFIG.ATHLAS_STORAGE_BUCKET,
   messagingSenderId: FB_CONFIG.ATHLAS_MESSAGING_SENDER_ID,
   appId: FB_CONFIG.ATHLAS_APP_ID,
-  measurementId: FB_CONFIG.ATHLAS_MEASUREMENT_ID
-}
+  measurementId: FB_CONFIG.ATHLAS_MEASUREMENT_ID,
+};
 
-export const firebaseApp = firebase.initializeApp(firebaseConfig)
-export const db = firebaseApp.firestore()
+export const firebaseApp = firebase.initializeApp(firebaseConfig);
+export const db = firebaseApp.firestore();

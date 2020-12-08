@@ -3,7 +3,7 @@ const videoControlStyles = () => ({
     display: 'flex',
     flexBasis: '30%',
     flexDirection: 'column',
-    minHeight: '250px'
+    minHeight: '250px',
   },
   controlBar: {
     backgroundColor: '#cccccc',
@@ -11,9 +11,9 @@ const videoControlStyles = () => ({
     flexDirection: 'row',
     justifyContent: 'center',
     '& *': {
-      cursor: 'pointer'
-    }
-  }
-})
+      cursor: 'pointer',
+    },
+  },
+});
 
-export default videoControlStyles
+export default videoControlStyles;

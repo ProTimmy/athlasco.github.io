@@ -1,8 +1,8 @@
 const editorStyles = () => ({
   editor: {
     display: 'flex',
-    height: '100%'
-  }
-})
+    height: '100%',
+  },
+});
 
-export default editorStyles
+export default editorStyles;

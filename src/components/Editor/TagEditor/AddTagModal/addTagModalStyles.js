@@ -3,7 +3,7 @@ const addTagModalStyles = () => ({
     position: 'relative',
     borderRadius: '10px',
     width: '100%',
-    margin: '20px 0px 20px 0px'
+    margin: '20px 0px 20px 0px',
   },
   searchIcon: {
     height: '100%',
@@ -11,15 +11,15 @@ const addTagModalStyles = () => ({
     pointerEvents: 'none',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   inputRoot: {
-    color: 'inherit'
+    color: 'inherit',
   },
   inputInput: {
     width: '100%',
-    paddingLeft: '2em'
-  }
-})
+    paddingLeft: '2em',
+  },
+});
 
-export default addTagModalStyles
+export default addTagModalStyles;

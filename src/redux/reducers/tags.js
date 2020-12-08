@@ -1,27 +1,28 @@
+/* eslint-disable import/prefer-default-export */
 import {
   TAG_TOGGLE_ADD_MODAL,
-  TAG_LIST_SUCCESS
-} from '../actions'
+  TAG_LIST_SUCCESS,
+} from '../actions';
 
 export const tagsReducer = (
   state = {
     tagList: [],
-    addModalToggle: false
+    addModalToggle: false,
   },
-  action
+  action,
 ) => {
   switch (action.type) {
     case TAG_TOGGLE_ADD_MODAL:
       return {
         ...state,
-        addModalToggle: action.toggle
-      }
+        addModalToggle: action.toggle,
+      };
     case TAG_LIST_SUCCESS:
       return {
         ...state,
-        tagList: action.tags
-      }
+        tagList: action.tags,
+      };
     default:
-      return state
+      return state;
   }
-}
+};

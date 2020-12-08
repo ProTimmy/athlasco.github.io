@@ -1,10 +1,10 @@
 const navigationStyles = () => ({
   root: {
-    display: 'flex'
+    display: 'flex',
   },
   navigation: {
-    flexGrow: 1
-  }
-})
+    flexGrow: 1,
+  },
+});
 
-export default navigationStyles
+export default navigationStyles;

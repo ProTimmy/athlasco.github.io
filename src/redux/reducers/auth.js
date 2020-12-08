@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 import {
   AUTH_LOGIN_REQUEST,
   AUTH_LOGIN_SUCCESS,
@@ -6,8 +7,8 @@ import {
   AUTH_LOGOUT_SUCCESS,
   AUTH_LOGOUT_FAILURE,
   AUTH_VERIFY_REQUEST,
-  AUTH_VERIFY_SUCCESS
-} from '../actions'
+  AUTH_VERIFY_SUCCESS,
+} from '../actions';
 
 export const authReducer = (
   state = {
@@ -17,62 +18,62 @@ export const authReducer = (
     loginError: false,
     logoutError: false,
     isAuthenticated: false,
-    user: {}
+    user: {},
   },
-  action
+  action,
 ) => {
   switch (action.type) {
     case AUTH_LOGIN_REQUEST:
       return {
         ...state,
         isLoggingIn: true,
-        loginError: false
+        loginError: false,
       };
     case AUTH_LOGIN_SUCCESS:
       return {
         ...state,
         isLoggingIn: false,
         isAuthenticated: true,
-        user: action.user
+        user: action.user,
       };
     case AUTH_LOGIN_FAILURE:
       return {
         ...state,
         isLoggingIn: false,
         isAuthenticated: false,
-        loginError: true
+        loginError: true,
       };
     case AUTH_LOGOUT_REQUEST:
       return {
         ...state,
         isLoggingOut: true,
-        logoutError: false
+        logoutError: false,
       };
     case AUTH_LOGOUT_SUCCESS:
       return {
         ...state,
         isLoggingOut: false,
         isAuthenticated: false,
-        user: {}
+        user: {},
       };
     case AUTH_LOGOUT_FAILURE:
       return {
         ...state,
         isLoggingOut: false,
-        logoutError: true
+        logoutError: true,
       };
     case AUTH_VERIFY_REQUEST:
       return {
         ...state,
         isVerifying: true,
-        verifyingError: false
+        verifyingError: false,
       };
     case AUTH_VERIFY_SUCCESS:
       return {
         ...state,
-        isVerifying: false
+        isVerifying: false,
       };
     default:
       return state;
   }
-}
+};

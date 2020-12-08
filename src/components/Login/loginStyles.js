@@ -1,29 +1,29 @@
 const loginStyles = () => ({
-  "@global": {
+  '@global': {
     body: {
-      backgroundColor: "#fff"
-    }
+      backgroundColor: '#fff',
+    },
   },
   paper: {
     marginTop: 100,
-    display: "flex",
+    display: 'flex',
     padding: 20,
-    flexDirection: "column",
-    alignItems: "center"
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   avatar: {
-    marginLeft: "auto",
-    marginRight: "auto",
-    backgroundColor: "#f50057"
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    backgroundColor: '#f50057',
   },
   form: {
-    marginTop: 1
+    marginTop: 1,
   },
   errorText: {
-    color: "#f50057",
+    color: '#f50057',
     marginBottom: 5,
-    textAlign: "center"
-  }
-})
+    textAlign: 'center',
+  },
+});
 
-export default loginStyles
+export default loginStyles;

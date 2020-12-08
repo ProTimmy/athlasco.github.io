@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 import {
   VIDEO_HANDLE_FILE,
   VIDEO_PLAY,
@@ -6,58 +7,58 @@ import {
   VIDEO_SKIP_BACKWARDS,
   VIDEO_CLEAR_SELECTION,
   VIDEO_UPLOAD_PROJECT,
-  VIDEO_TOGGLE_CLEAR_DIALOG
-} from '../actions'
+  VIDEO_TOGGLE_CLEAR_DIALOG,
+} from '../actions';
 
 export const videoReducer = (
   state = {
     videoFilePath: null,
     isPlaying: false,
-    clearDialogToggle: false
+    clearDialogToggle: false,
   },
-  action
+  action,
 ) => {
   switch (action.type) {
     case VIDEO_HANDLE_FILE:
       return {
         ...state,
-        videoFilePath: action.videoFilePath
-      }
+        videoFilePath: action.videoFilePath,
+      };
     case VIDEO_PLAY:
       if (state.videoFilePath != null) {
         return {
           ...state,
-          isPlaying: true
-        }
+          isPlaying: true,
+        };
       }
 
-      return state
+      return state;
     case VIDEO_PAUSE:
       return {
         ...state,
-        isPlaying: false
-      }
+        isPlaying: false,
+      };
     case VIDEO_SKIP_FORWARDS:
       return {
-        ...state
-      }
+        ...state,
+      };
     case VIDEO_SKIP_BACKWARDS:
       return {
-        ...state
-      }
+        ...state,
+      };
     case VIDEO_TOGGLE_CLEAR_DIALOG:
       return {
         ...state,
-        clearDialogToggle: action.toggle
-      }
+        clearDialogToggle: action.toggle,
+      };
     case VIDEO_CLEAR_SELECTION:
       return {
         ...state,
-        videoFilePath: null
-      }
+        videoFilePath: null,
+      };
     case VIDEO_UPLOAD_PROJECT:
-      return state
+      return state;
     default:
-      return state
+      return state;
   }
-}
+};
