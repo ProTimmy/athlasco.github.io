@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -22,11 +22,34 @@ import { setToggleAddModal } from '../../../../redux/actions';
 import addTagModalStyles from './addTagModalStyles';
 
 const AddTagModal = (props) => {
+  const [tagName, setTagName] = useState('');
+  const [tagDescription, setTagDescription] = useState('');
+  const [parentTag, setParentTag] = useState('');
+  const [isParentSelectable, setIsParentSelectable] = useState(false);
+
   const { dispatch, addModalToggle, tagList } = props;
 
   const handleSave = () => {
     dispatch(setToggleAddModal(false));
   };
+
+  const handleCancel = () => {
+    setTagName('');
+    setTagDescription('');
+    setParentTag('');
+    setIsParentSelectable(false);
+
+    dispatch(setToggleAddModal(false));
+  };
+
+  const handleSetParentTag = (e, val) => {
+    setParentTag(e.target.textContent);
+    setIsParentSelectable(val.selectable);
+  };
+
+  const isSelectableDisabled = parentTag === '' && !isParentSelectable;
+
+  const isValidForm = tagName === '' || parentTag === '';
 
   return (
     <Dialog open={addModalToggle}>
@@ -35,25 +58,37 @@ const AddTagModal = (props) => {
         <TextField
           label='Tag Name'
           fullWidth
-          required
+          value={tagName}
+          onChange={(e) => setTagName(e.target.value)}
           autoFocus/>
-        <FormControlLabel control={
-          <Checkbox name='selectable' color='primary'/>
-        } label='Selectable' />
         <TextField
           label='Description'
           fullWidth
+          value={tagDescription}
+          onChange={(e) => setTagDescription(e.target.value)}
           multiline
           rows={4} />
         <Autocomplete
           options={tagList}
           getOptionLabel={(tag) => tag.name}
           style={{ marginTop: '10px' }}
-          renderInput={ (params) => <TextField {...params} label='Parent Tag' variant='outlined' /> }
+          onChange={(e, val) => handleSetParentTag(e, val)}
+          renderInput={ (params) => (
+            <TextField {...params}
+              label='Parent Tag'
+              value={parentTag}
+              variant='outlined' />
+          )}
         />
+        <FormControlLabel control={
+          <Checkbox
+            name='selectable'
+            disabled={isSelectableDisabled}
+            color='primary'/>
+        } label='Selectable' />
         <DialogActions>
-          <Button onClick={handleSave} color='primary'>Save</Button>
-          <Button onClick={() => dispatch(setToggleAddModal(false))} color='primary'>Cancel</Button>
+          <Button disabled={isValidForm} onClick={handleSave} color='primary'>Save</Button>
+          <Button onClick={handleCancel} color='primary'>Cancel</Button>
         </DialogActions>
       </DialogContent>
     </Dialog>

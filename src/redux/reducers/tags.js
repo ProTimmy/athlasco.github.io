@@ -20,7 +20,7 @@ export const tagsReducer = (
     case TAG_LIST_SUCCESS:
       return {
         ...state,
-        tagList: action.tags,
+        tagList: state.tagList.concat(action.tag),
       };
     default:
       return state;

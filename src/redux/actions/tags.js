@@ -16,9 +16,9 @@ const requestTagListAction = () => ({
   type: TAG_LIST_REQUEST,
 });
 
-const receiveTagListAction = (tags) => ({
+const receiveTagListAction = (tag) => ({
   type: TAG_LIST_SUCCESS,
-  tags,
+  tag,
 });
 
 const tagListErrorAction = () => ({
@@ -41,7 +41,9 @@ export const getTagList = () => (dispatch) => {
     .collection('tags')
     .get()
     .then((tags) => {
-      dispatch(receiveTagListAction(tags));
+      tags.forEach((tag) => {
+        dispatch(receiveTagListAction(tag.data()));
+      });
     })
     .catch(() => {
       dispatch(tagListErrorAction());

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import {
   withStyles,
   IconButton,
+  TextField,
   Tooltip,
 } from '@material-ui/core';
 import { Add } from '@material-ui/icons';
@@ -19,30 +20,28 @@ const TagEditor = (props) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    getTagList();
-  });
+    dispatch(getTagList());
+  }, []);
 
-  useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.log(searchTerm);
-  }, [searchTerm]);
+  // useEffect(() => {
+  //   console.log(searchTerm);
+  // }, [searchTerm]);
 
   return (
     <div className={classes.tagEditor}>
+      <AddTagModal />
+
       <div className={'inputArea'}>
-        <input
-          type='search'
+        <TextField
+          label='Search'
           value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          placeholder='Search' />
+          onChange={(e) => setSearchTerm(e.target.value)} />
         <Tooltip title='Add New Tag'>
           <IconButton
             onClick={() => dispatch(setToggleAddModal(true))}
           ><Add /></IconButton>
         </Tooltip>
       </div>
-
-      <AddTagModal />
     </div>
   );
 };
@@ -50,6 +49,7 @@ const TagEditor = (props) => {
 TagEditor.propTypes = {
   dispatch: PropTypes.func,
   classes: PropTypes.any,
+  tagList: PropTypes.array,
 };
 
 export default withStyles(
