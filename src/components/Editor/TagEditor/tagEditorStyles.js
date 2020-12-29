@@ -6,19 +6,12 @@ const tagEditorStyles = () => ({
     minWidth: '250px',
     borderRight: 'black 2px solid',
   },
-  search: {
+  searchArea: {
     display: 'flex',
-    justifyContent: 'space-between',
-    '& *': {
-      padding: '10px',
-    },
-    '& input': {
-      flexGrow: 1,
-      borderRadius: '10px',
-    },
-    '& :not(input)': {
-      alignSelf: 'center',
-    },
+    padding: '15px',
+  },
+  searchBox: {
+    flexGrow: 1,
   },
 });
 

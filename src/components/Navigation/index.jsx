@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { withStyles } from '@material-ui/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
+
+import { getTagList, unsubscribeGetTagList } from '../../redux/actions';
 
 import SignInButton from './SignInButton';
 import SignOutButton from './SignOutButton';
@@ -15,7 +17,19 @@ import navigationStyles from './navigationStyles';
 
 const Navigation = (props) => {
   const history = useHistory();
-  const { classes, isAuthenticated } = props;
+  const location = useLocation();
+
+  const { classes, dispatch, isAuthenticated } = props;
+
+  useEffect(() => {
+    if (location.pathname === '/editor') {
+      // Get Tag List
+      dispatch(getTagList());
+    } else {
+      // Unsubscribe tag list
+      dispatch(unsubscribeGetTagList());
+    }
+  }, [location]);
 
   const handleRoute = (route) => {
     history.push(route);
@@ -69,6 +83,7 @@ const NavigationNonAuth = (props) => (
 
 Navigation.propTypes = {
   classes: PropTypes.any,
+  dispatch: PropTypes.func,
   isAuthenticated: PropTypes.bool,
 };
 

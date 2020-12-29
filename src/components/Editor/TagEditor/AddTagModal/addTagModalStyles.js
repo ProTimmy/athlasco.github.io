@@ -1,24 +1,26 @@
 const addTagModalStyles = () => ({
-  search: {
-    position: 'relative',
-    borderRadius: '10px',
-    width: '100%',
-    margin: '20px 0px 20px 0px',
+  tagName: {
+    margin: '0px 0px 20px 0px',
   },
-  searchIcon: {
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
+  tagDescription: {
+    margin: '0px 0px 20px 0px',
+  },
+  parentTag: {
+    margin: '0px 0px 20px 0px',
+  },
+  attribute: {
     display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    margin: '20px 0px 0px 0px',
   },
-  inputRoot: {
-    color: 'inherit',
+  attributeDeleteIcon: {
+    margin: '0px 10px 0px 0px',
   },
-  inputInput: {
-    width: '100%',
-    paddingLeft: '2em',
+  attributeOptions: {
+    flexGrow: 1,
+    minWidth: '200px',
+    margin: '0px 20px 0px 20px',
   },
 });
 

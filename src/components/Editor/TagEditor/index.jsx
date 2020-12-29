@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -7,21 +7,23 @@ import {
   IconButton,
   TextField,
   Tooltip,
+  InputAdornment,
 } from '@material-ui/core';
-import { Add } from '@material-ui/icons';
+import {
+  Add,
+  Search,
+} from '@material-ui/icons';
 
-import { setToggleAddModal, getTagList } from '../../../redux/actions';
+import { setToggleAddModal } from '../../../redux/actions';
 
 import AddTagModal from './AddTagModal';
+import TagTree from './TagTree';
+
 import tagEditorStyles from './tagEditorStyles';
 
 const TagEditor = (props) => {
   const { classes, dispatch } = props;
   const [searchTerm, setSearchTerm] = useState('');
-
-  useEffect(() => {
-    dispatch(getTagList());
-  }, []);
 
   // useEffect(() => {
   //   console.log(searchTerm);
@@ -31,9 +33,17 @@ const TagEditor = (props) => {
     <div className={classes.tagEditor}>
       <AddTagModal />
 
-      <div className={'inputArea'}>
+      <div className={classes.searchArea}>
         <TextField
-          label='Search'
+          variant='outlined'
+          className={classes.searchBox}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position='start'>
+                <Search />
+              </InputAdornment>
+            ),
+          }}
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)} />
         <Tooltip title='Add New Tag'>
@@ -42,13 +52,15 @@ const TagEditor = (props) => {
           ><Add /></IconButton>
         </Tooltip>
       </div>
+
+      <TagTree />
     </div>
   );
 };
 
 TagEditor.propTypes = {
   dispatch: PropTypes.func,
-  classes: PropTypes.any,
+  classes: PropTypes.object.isRequired,
   tagList: PropTypes.array,
 };
 
